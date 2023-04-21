@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Update Student Data</h2>
+
+<form action="{% url 'update' %}" enctype="multipart/form-data" method="post">
+{% csrf_token %}
+
+<input type="text" id="stu_id" value="{{stu.id}}" name="stu_id" hidden><br><br>
+  <label for="name">Student name</label><br>
+  <input type="text" id="fname" value="{{stu.name}}" name="name"><br><br>
+  <label for="lname">Class</label><br>
+  <input type="text" id="lname" value='{{stu.cls}}' name="cls"><br><br>
+  <label for="lname">Mobile Number</label><br>
+  <input type="text" id="lname" value="{{stu.mob}}" name="mob"><br><br>
+  <label for="lname">Subject</label><br>
+  <input type="text" id="lname" value="{{stu.subject}}" name="subject"><br><br>
+  <input type="submit" value="Submit">
+
+</form> 
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 2px solid rgb(158, 82, 82);
+  border-collapse:separate;
+}
+</style>
+</head>
+<body>
+
+<h2>Data Table of Student</h2>
+<p>Here, data of student's. You can Add,Read,Update and Delete.</p>
+<a href="{% url 'add' %}"><button style="margin: 10px;" >Add New Data</button></a>
+<a href="{% url 'logout_view' %}"><button style="margin: 10px;" >Logout</button></a>
+<table style="width:60%">
+  <tr>  
+    <th>S. No.</th>
+    <th>Student Name</th>
+    <th>Class</th> 
+    <th>Mobile Number</th>
+    <th>Subject</th>
+    <th colspan="2">Actions</th>
+  </tr>
+  {% for i in stu %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.cls}}</td>
+        <td>{{i.mob}}</td>
+        <td>{{i.subject}}</td>
+        <td><a href="{% url 'update' %}?stu_id={{i.id}}"><button>Edit</button></a></td>   
+        <td><a href="{% url 'delete' %}?stu_id={{i.id}}"><button>Delete</button></a></td>
+    </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
